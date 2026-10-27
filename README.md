@@ -1,15 +1,24 @@
 # Rootmoss
 
-**A personal knowledge framework** — a Markdown folder tree that holds
-your memories, plus an agent contract that teaches any AI coding agent
-to work with them. Clone it, introduce yourself, and start building
-your own topics.
+**Your AI keeps forgetting you. Your files don't.**
 
-- **Source of truth**: Markdown files on your disk — no vendor lock-in
-- **Orchestration**: [OpenCode](https://opencode.ai) — or any agent
-  that reads `AGENTS.md`
-- **Human UI**: [Obsidian](https://obsidian.md) or any Markdown editor
-- **Models**: replaceable; your memory outlives them
+Every chat starts from zero: you re-explain who you are, what you
+decided, what matters to you. Rootmoss gives any AI agent a memory
+that doesn't reset — a folder of plain Markdown it reads at session
+start. Your memories stay on your disk, or in your own private git
+repository, never in a vendor's cloud. Change the model, the tool,
+even the company behind it — your history comes with you.
+
+- **Better conversations from the first message** — your agent starts
+  with your profile, your open topics, what you learned last time.
+- **Truly yours** — plain files, no account, no subscription, no
+  vendor sitting on your data.
+- **It compounds** — chats stay disposable; what you save keeps
+  paying off as your tree grows.
+
+Works with [OpenCode](https://opencode.ai) — or any agent that reads
+`AGENTS.md`. Read it in [Obsidian](https://obsidian.md) or any
+Markdown editor.
 
 > Status: **experimental / early**. The name and logo are not covered
 > by the license.

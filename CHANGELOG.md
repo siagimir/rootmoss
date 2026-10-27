@@ -8,6 +8,11 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.2 — 2026-10-27
+
+- README: new hero + value framing — memory that doesn't reset, on
+  your disk or private git repo, never in a vendor's cloud.
+
 ## v0.1.1 — 2026-10-27
 
 - README: "Updates" section — how to watch releases for email
