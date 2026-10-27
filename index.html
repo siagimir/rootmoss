@@ -232,10 +232,14 @@
     margin: 1.75rem 0 0;
     color: var(--dim);
     font-size: 0.92rem;
+    line-height: 1.55;
+    text-wrap: balance;
   }
-  /* no white-space:nowrap — a phrase longer than the line box would
-     overflow and .hero{overflow:hidden} would clip it (seen at 641–680px) */
-  .trust .sep { margin: 0 0.55rem; color: var(--border-strong); }
+  /* three facts, one per line. No separators (a trailing "·" dangled at
+     line ends) and no white-space:nowrap (a phrase longer than its line
+     box overflowed and .hero{overflow:hidden} clipped it at 641–680px). */
+  .trust span { display: block; margin-bottom: 0.3rem; }
+  .trust span:last-child { margin-bottom: 0; }
 
   /* ---------- sections ---------- */
 
@@ -559,8 +563,6 @@
     .hero { padding: 3.5rem 0 3rem; }
     section { padding: 3.5rem 0; }
     .final { padding: 1.5rem; }
-    .trust .sep { display: none; }
-    .trust span { display: block; margin-bottom: 0.25rem; white-space: normal; }
     /* stack the hero CTAs full-width rather than ragged */
     .cta-row .btn { flex: 1 1 100%; }
   }
@@ -640,11 +642,9 @@
       </div>
 
       <p class="trust">
-        <span>Works with OpenCode — terminal, desktop app or web — or any agent that reads <code>AGENTS.md</code></span>
-        <span class="sep">·</span>
-        <span>Open it like any folder — Finder is enough</span>
-        <span class="sep">·</span>
-        <span>No account. No subscription. No company holding your data.</span>
+        <span>Works with OpenCode — terminal, desktop app or web — or any agent that reads <code>AGENTS.md</code>.</span>
+        <span>Open it like any folder — Finder is enough.</span>
+        <span>No&nbsp;account. No&nbsp;subscription. No&nbsp;company holding your data.</span>
       </p>
     </div>
   </section>
@@ -703,9 +703,9 @@
           <span class="num">05</span>
           <h3>Nothing leaves your disk</h3>
           <p>
-            No account, no sync service, no company sitting between you and your
-            own memory. A plain folder is all it takes. Want version history? Add
-            a private git repo later.
+            No&nbsp;account, no sync service, no company sitting between you and
+            your own memory. A plain folder is all it takes. Want version
+            history? Add a private git repo later.
           </p>
         </div>
       </div>
