@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rootmoss — a memory for your AI, in files you own</title>
+<meta name="description" content="A plain folder of Markdown files your AI agent reads first. Teach it once, and every new chat starts already knowing who you are and what you've decided.">
+<meta name="theme-color" content="#f7f4ed">
+<meta name="color-scheme" content="light">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rootmoss — a memory for your AI, in files you own">
+<meta property="og:description" content="A plain folder of Markdown files your AI agent reads first. Teach it once, and every new chat starts already knowing who you are and what you've decided. No account, no subscription.">
+<meta property="og:url" content="https://siagimir.github.io/rootmoss/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rootmoss — a memory for your AI, in files you own">
+<meta name="twitter:description" content="Teach it once — every new chat starts already knowing who you are and what you've decided. No account, no subscription, no company holding your data.">
+
+<link rel="canonical" href="https://siagimir.github.io/rootmoss/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M3%2014h18'%20stroke='%232e6b3d'%20stroke-width='1.6'%20stroke-linecap='round'%20opacity='.55'/%3E%3Cpath%20d='M12%2014V6'%20stroke='%232e6b3d'%20stroke-width='1.8'%20stroke-linecap='round'/%3E%3Cpath%20d='M12%209.5C9%209.5%207.4%207.6%207.4%205.1%2010.4%205.1%2012%207%2012%209.5Z'%20fill='%232e6b3d'/%3E%3Cpath%20d='M12%2011.6c3%200%204.6-1.9%204.6-4.4-3%200-4.6%201.9-4.6%204.4Z'%20fill='%232e6b3d'%20opacity='.72'/%3E%3Cpath%20d='M12%2014c0%203-1.8%204.6-3.8%205.6'%20stroke='%232e6b3d'%20stroke-width='1.6'%20stroke-linecap='round'%20fill='none'%20opacity='.8'/%3E%3Cpath%20d='M12%2014c0%203.4%201.4%205%203.4%206'%20stroke='%232e6b3d'%20stroke-width='1.6'%20stroke-linecap='round'%20fill='none'%20opacity='.8'/%3E%3C/svg%3E">
+
+<style>
+  :root {
+    --bg: #f7f4ed;
+    --bg-raise: #f1ede3;
+    --surface: #fffdf9;
+    --code-bg: #f3f6f1;
+    --border: #e5dfd2;
+    --border-strong: #cec6b5;
+    --text: #20251f;
+    --muted: #4d544b;
+    --dim: #666e67;
+    --accent: #2e6b3d;
+    --accent-hover: #38804a;
+    --accent-ink: #ffffff;
+    --accent-soft: rgba(46, 107, 61, 0.10);
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --maxw: 68rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  code, pre { font-family: var(--mono); }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- nav ---------- */
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(247, 244, 237, 0.86);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav .wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 3.75rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .brand:hover { text-decoration: none; }
+  .brand svg { display: block; flex: none; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-left: auto;
+  }
+  .nav-links a:not(.btn) {
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+  .nav-links a:not(.btn):hover { color: var(--text); }
+
+  /* ---------- buttons ---------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.15rem;
+    border-radius: 8px;
+    font-size: 0.97rem;
+    font-weight: 600;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .btn-primary:hover { background: var(--accent-hover); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* sized to clear the 44px touch target — this is the nav CTA */
+  .btn-sm { padding: 0.75rem 1.05rem; font-size: 0.95rem; border-radius: 7px; }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5.5rem 0 4.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 40rem;
+    background:
+      radial-gradient(46rem 24rem at 50% 0%, rgba(46, 107, 61, 0.09), transparent 68%),
+      radial-gradient(30rem 18rem at 82% 12%, rgba(160, 130, 70, 0.07), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero .wrap { position: relative; }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.32rem 0.7rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+  .chip .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  h1 {
+    margin: 1.5rem 0 0;
+    font-size: clamp(2.35rem, 6vw, 4.1rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 640;
+    max-width: 24ch;
+  }
+  h1 .soft { color: var(--dim); }
+
+  .lede {
+    margin: 1.5rem 0 0;
+    max-width: 46rem;
+    font-size: clamp(1.05rem, 1.7vw, 1.24rem);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .lede code {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.08em 0.4em;
+    font-size: 0.88em;
+    color: var(--text);
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2.25rem;
+  }
+
+  .trust {
+    margin: 1.75rem 0 0;
+    color: var(--dim);
+    font-size: 0.92rem;
+  }
+  /* no white-space:nowrap — a phrase longer than the line box would
+     overflow and .hero{overflow:hidden} would clip it (seen at 641–680px) */
+  .trust .sep { margin: 0 0.55rem; color: var(--border-strong); }
+
+  /* ---------- sections ---------- */
+
+  section { padding: 5rem 0; }
+  .section-alt {
+    background: var(--bg-raise);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.85rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3.2vw, 2.15rem);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    font-weight: 620;
+  }
+
+  .section-lede {
+    margin: 0.9rem 0 0;
+    max-width: 44rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  /* ---------- outcomes ---------- */
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+    gap: 1rem;
+    margin-top: 2.75rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.35rem 1.5rem;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+  }
+  .card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+
+  .card .num {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  .card h3 {
+    margin: 0.7rem 0 0.55rem;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    font-weight: 620;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- how it works ---------- */
+
+  .how-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 3rem;
+    margin-top: 2.75rem;
+    align-items: start;
+  }
+
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+
+  .steps li {
+    position: relative;
+    padding: 0 0 1.75rem 3rem;
+    counter-increment: step;
+  }
+  .steps li:last-child { padding-bottom: 0; }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-strong);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .steps li::after {
+    content: "";
+    position: absolute;
+    left: 0.93rem;
+    top: 2.1rem;
+    bottom: 0.35rem;
+    width: 1px;
+    background: var(--border);
+  }
+  .steps li:last-child::after { display: none; }
+
+  .steps h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.04rem;
+    font-weight: 620;
+    letter-spacing: -0.01em;
+  }
+  .steps p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+  .steps code {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.05em 0.35em;
+    font-size: 0.86em;
+    color: var(--text);
+  }
+
+  .tree {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.35rem 1.4rem;
+    overflow-x: auto;
+    font-size: 0.86rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .tree .name { color: var(--text); }
+  .tree .dir { color: var(--accent); }
+  .tree .note { color: var(--dim); }
+  .tree .root { color: var(--accent); font-weight: 600; }
+  .tree pre { margin: 0; }
+
+  .tree-cap {
+    margin: 0.85rem 0 0;
+    color: var(--dim);
+    font-size: 0.86rem;
+  }
+
+  /* ---------- quickstart ---------- */
+
+  .qs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+    margin-top: 2.75rem;
+  }
+
+  .qs-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem 1.3rem 1.4rem;
+  }
+  .qs-item .step {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .qs-item h3 {
+    margin: 0.6rem 0 0.5rem;
+    font-size: 1.02rem;
+    font-weight: 620;
+    letter-spacing: -0.01em;
+  }
+  .qs-item p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+  .qs-item code {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.05em 0.35em;
+    font-size: 0.86em;
+    color: var(--text);
+  }
+
+  /* ---------- run paths (A: DIY / B: set up once) ---------- */
+
+  .pathlabel {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 2.75rem 0 0;
+  }
+  .pathlabel + .qs { margin-top: 1rem; }
+
+  .snippet {
+    margin-top: 1.5rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem 1.3rem;
+    overflow-x: auto;
+  }
+  .snippet .label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 0.7rem;
+  }
+  .snippet pre {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* ---------- status ---------- */
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .status-item {
+    border-top: 2px solid var(--border-strong);
+    padding-top: 1.1rem;
+  }
+  .status-item h3 {
+    margin: 0 0 0.45rem;
+    font-size: 0.95rem;
+    font-weight: 620;
+    color: var(--text);
+  }
+  .status-item p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+
+  .final {
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    background:
+      linear-gradient(180deg, rgba(46, 107, 61, 0.08), rgba(46, 107, 61, 0.015));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+  .final h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+  .final p { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.98rem; max-width: 34rem; }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0 3rem;
+    color: var(--dim);
+    font-size: 0.9rem;
+  }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+  .foot-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    max-width: 42rem;
+  }
+  .legal {
+    color: var(--dim);
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+  .legal a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover { color: var(--accent); }
+  .foot-links a { color: var(--muted); }
+  .foot-links a:hover { color: var(--accent); }
+  .foot .tagline { color: var(--dim); }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 60rem) {
+    /* minmax(0,1fr): plain 1fr keeps min-width:auto, so the folder
+       tree's ~484px min-content would widen the page past 393px */
+    .how-grid { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+  }
+
+  @media (max-width: 40rem) {
+    .nav .wrap { gap: 0.75rem; min-height: 3.4rem; }
+    .nav-links { gap: 0.9rem; }
+    .nav-links a:not(.btn) { display: none; }
+    .hero { padding: 3.5rem 0 3rem; }
+    section { padding: 3.5rem 0; }
+    .final { padding: 1.5rem; }
+    .trust .sep { display: none; }
+    .trust span { display: block; margin-bottom: 0.25rem; white-space: normal; }
+    /* stack the hero CTAs full-width rather than ragged */
+    .cta-row .btn { flex: 1 1 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+
+  /* ---------- five-card row guards: never strand the last card ---- */
+  /* auto-fit bands actually resolve at these widths (15.5rem min + 1rem
+     gap, wrap content = min(vw,1088) - 48): 1 col <35 · 2 cols 35–51.5 ·
+     3 cols 51.5–68 · 4 cols ≥68. Guards must start where each band does. */
+  @media (min-width: 35rem) {
+    /* 2-col band: 2 + 2 + full-width strip */
+    .cards .card:last-child { grid-column: 1 / -1; }
+  }
+  @media (min-width: 51.5rem) {
+    /* 3-col band: 3 + 2 — last card sits normally */
+    .cards .card:last-child { grid-column: auto; }
+  }
+  @media (min-width: 68rem) {
+    /* 4-col band: 4 + centred half-width strip */
+    .cards .card:last-child { grid-column: 2 / span 2; }
+  }
+  @media (min-width: 50rem) and (max-width: 65.9rem) {
+    /* quickstart: 4 steps in a 3-col band → 3 + full-width step */
+    .qs-item:last-child { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Rootmoss home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 14h18" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+        <path d="M12 14V6" stroke="#2e6b3d" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M12 9.5C9 9.5 7.4 7.6 7.4 5.1c3 0 4.6 1.9 4.6 4.4Z" fill="#2e6b3d"/>
+        <path d="M12 11.6c3 0 4.6-1.9 4.6-4.4-3 0-4.6 1.9-4.6 4.4Z" fill="#2e6b3d" opacity=".72"/>
+        <path d="M12 14c0 3-1.8 4.6-3.8 5.6" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+        <path d="M12 14c0 3.4 1.4 5 3.4 6" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+      </svg>
+      Rootmoss
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="https://github.com/siagimir/rootmoss/blob/main/FIRST-TIME-HERE.md">Tour</a>
+      <a href="https://github.com/siagimir/rootmoss/blob/main/CHANGELOG.md">Changelog</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/siagimir/rootmoss/generate">Use this template</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="chip"><span class="dot"></span>v0.1 · open source · MIT</span>
+
+      <h1>Your AI keeps forgetting you.<br><span class="soft">Your files don't.</span></h1>
+
+      <p class="lede">
+        Rootmoss is a plain folder of Markdown files — your profile, your
+        decisions, your notes — with one instruction file at the top that your
+        agent reads first. Teach it once, and every new chat starts already
+        knowing who you are and what you've decided. The folder lives on your own
+        disk, and it stays yours. Nothing is ever deleted — outdated notes get
+        marked, not lost.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/siagimir/rootmoss/generate">Use this template</a>
+        <a class="btn btn-ghost" href="#how">See what's inside</a>
+      </div>
+
+      <p class="trust">
+        <span>Works with OpenCode — terminal, desktop app or web — or any agent that reads <code>AGENTS.md</code></span>
+        <span class="sep">·</span>
+        <span>Open it like any folder — Finder is enough</span>
+        <span class="sep">·</span>
+        <span>No account. No subscription. No company holding your data.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ OUTCOMES ============ -->
+  <section class="section-alt" id="outcomes">
+    <div class="wrap">
+      <p class="eyebrow">Why it matters</p>
+      <h2>What changes for you</h2>
+      <p class="section-lede">
+        It's just a folder. What changes is every conversation that comes after.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>You stop repeating yourself</h3>
+          <p>
+            Your agent opens every chat already knowing your profile, what you're
+            working on and what you learned last time — so you can ask the real
+            question instead of re-explaining yourself.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="num">02</span>
+          <h3>Your memory outlives your tools</h3>
+          <p>
+            Change the model, the tool, or the company behind it. Your history is
+            plain files you already own — nothing to export, nothing to migrate,
+            nobody to ask.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="num">03</span>
+          <h3>Nothing gets thrown away</h3>
+          <p>
+            When something you wrote stops being true, your AI marks it
+            outdated instead of deleting it. Your notes can get messy —
+            they can't disappear.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="num">04</span>
+          <h3>Every chat makes the next one better</h3>
+          <p>
+            You don't have to save whole chats. The few things worth
+            remembering — a decision, a lesson, a preference — get written down
+            and come back to you exactly when they're useful.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="num">05</span>
+          <h3>Nothing leaves your disk</h3>
+          <p>
+            No account, no sync service, no company sitting between you and your
+            own memory. A plain folder is all it takes. Want version history? Add
+            a private git repo later.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how">
+    <div class="wrap">
+      <p class="eyebrow">Under the hood</p>
+      <h2>How it works</h2>
+      <p class="section-lede">
+        Nothing to run, nothing to host. One instruction file at the top of the
+        folder, your notes underneath.
+      </p>
+
+      <div class="how-grid">
+        <ol class="steps">
+          <li>
+            <h3>You clone the template</h3>
+            <p>
+              You get a folder: <code>AGENTS.md</code> (the rules your agent
+              follows), <code>USER.md</code> (a short profile of you), six
+              <code>memory/</code> folders for different kinds of knowledge, and
+              one folder for each area of your life.
+            </p>
+          </li>
+          <li>
+            <h3>Your agent reads the rules first</h3>
+            <p>
+              Before you type a word, it reads the instruction file, your
+              profile, and the folder for whatever you're working on — so it
+              starts out informed instead of blank.
+            </p>
+          </li>
+          <li>
+            <h3>It writes back, briefly</h3>
+            <p>
+              After a real conversation it saves a short note about what
+              matters — never whole transcripts — and marks older notes outdated
+              instead of deleting them. Next time, it reads them back.
+            </p>
+          </li>
+        </ol>
+
+        <div>
+          <div class="tree" tabindex="0" role="region" aria-label="Folder structure of a Rootmoss tree">
+<pre><span class="root">rootmoss/</span>
+├── <span class="name">AGENTS.md</span>            <span class="note"># the rules your agent reads first</span>
+├── <span class="name">USER.md</span>              <span class="note"># a short profile of you</span>
+├── <span class="name">FIRST-TIME-HERE.md</span>   <span class="note"># the guided tour</span>
+├── <span class="dir">memory/</span>              <span class="note"># everything worth remembering</span>
+│   ├── <span class="dir">facts/</span>          <span class="note"># what is true</span>
+│   ├── <span class="dir">preferences/</span>    <span class="note"># how you like things</span>
+│   ├── <span class="dir">decisions/</span>      <span class="note"># choices you made</span>
+│   ├── <span class="dir">assumptions/</span>     <span class="note"># guesses, marked as guesses</span>
+│   ├── <span class="dir">lessons/</span>         <span class="note"># what didn't work</span>
+│   └── <span class="dir">context/</span>         <span class="note"># what's true right now</span>
+├── <span class="dir">topics/</span>              <span class="note"># one folder per subject</span>
+│   └── <span class="dir">plants/</span>          <span class="note"># fictional demo, delete it</span>
+└── <span class="dir">inbox/</span>               <span class="note"># chats that fit nowhere yet</span></pre>
+          </div>
+          <p class="tree-cap">
+            Open it like any folder — or ask your AI to explain any line.
+            Obsidian or Zed if you want a nicer view (optional). It's just
+            files.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUICKSTART ============ -->
+  <section class="section-alt" id="quickstart">
+    <div class="wrap">
+      <p class="eyebrow">Get started</p>
+      <h2>Up and running in about 15 minutes</h2>
+      <p class="section-lede">
+        Two ways in: run it yourself, or have someone set it up once for you.
+        Either way, the first run is an interview — your agent asks before it
+        changes anything.
+      </p>
+
+      <p class="pathlabel">Path A — I'll set it up myself</p>
+
+      <div class="qs">
+        <div class="qs-item">
+          <span class="step">STEP 01</span>
+          <h3>Create your copy</h3>
+          <p>
+            Click <strong>Use this template</strong> and make your own
+            <strong>private</strong> repo. Your copy is a snapshot: it never
+            changes behind your back. Updates come only when you choose to pull
+            them.
+          </p>
+        </div>
+
+        <div class="qs-item">
+          <span class="step">STEP 02</span>
+          <h3>Get OpenCode</h3>
+          <p>
+            Two options: the <strong>desktop app</strong> — download, install,
+            no terminal — or one line in the terminal (<code>brew</code>,
+            <code>npm</code> or <code>curl</code>). Then clone your repo.
+          </p>
+        </div>
+
+        <div class="qs-item">
+          <span class="step">STEP 03</span>
+          <h3>Start it inside the folder</h3>
+          <p>
+            Open your Rootmoss folder in the desktop app, or run
+            <code>opencode</code> from the folder in a terminal. Any agent that
+            reads <code>AGENTS.md</code> works just as well.
+          </p>
+        </div>
+
+        <div class="qs-item">
+          <span class="step">STEP 04</span>
+          <h3>Paste the first message</h3>
+          <p>
+            One message sets up your profile and proposes your first topic. Then
+            follow the tour.
+          </p>
+        </div>
+      </div>
+
+      <p class="pathlabel">Path B — set it up once, for me</p>
+
+      <div class="qs">
+        <div class="qs-item">
+          <h3>No terminal, no install — just a browser</h3>
+          <p>
+            OpenCode also runs as a <strong>web app</strong>. Someone technical
+            sets it up once on a machine you can reach — about 15 minutes — and
+            after that you only open a bookmark. The setup happens once; the
+            daily use is just a conversation. This is how family members
+            usually start.
+          </p>
+        </div>
+      </div>
+
+      <div class="snippet">
+        <span class="label">Paste this first</span>
+<pre>Read AGENTS.md and FIRST-TIME-HERE.md. Then interview me one
+question at a time to fill in USER.md, and propose my first topic
+based on what I tell you.</pre>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/siagimir/rootmoss/generate">Use this template</a>
+        <a class="btn btn-ghost" href="https://github.com/siagimir/rootmoss/blob/main/README.md">Read the full README</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATUS ============ -->
+  <section id="status">
+    <div class="wrap">
+      <p class="eyebrow">Status</p>
+      <h2>Where the project stands</h2>
+      <p class="section-lede">
+        Rootmoss is <strong>v0.1</strong> — early. The details will change as we
+        learn what works. The idea underneath them will not.
+      </p>
+
+      <div class="status-grid">
+        <div class="status-item">
+          <h3>What already works</h3>
+          <p>
+            The template installs cleanly and ships with checks that verify it.
+            The guided tour takes about 15 minutes, start to finish.
+          </p>
+        </div>
+        <div class="status-item">
+          <h3>What it is not</h3>
+          <p>
+            Not a hosted service, not an app, not a sync product and not a
+            subscription. It's a folder your agent reads.
+          </p>
+        </div>
+        <div class="status-item">
+          <h3>The fine print</h3>
+          <p>
+            MIT license for code and prose, provided as is, without warranty of
+            any kind. The Rootmoss name and logo are not covered by the license.
+            No cookies and no analytics on this page.
+          </p>
+        </div>
+      </div>
+
+      <div class="final">
+        <div>
+          <h2>Give your agent a memory it can't lose.</h2>
+          <p>
+            One click makes the folder yours. The first interview takes a few
+            minutes — everything after that compounds.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="https://github.com/siagimir/rootmoss/generate">Use this template</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="tagline">Plain files. Your agent reads them.</span>
+      <span class="legal">
+        © 2026 Miroslav Šiagi · MIT license for code and prose, provided as is,
+        without warranty of any kind.<br>
+        No cookies, no analytics, no tracking. <a href="privacy.html">Privacy</a>
+        · OpenCode, Obsidian and GitHub are trademarks of their respective
+        owners.
+      </span>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="https://github.com/siagimir/rootmoss">GitHub</a>
+      <a href="https://github.com/siagimir/rootmoss/blob/main/FIRST-TIME-HERE.md">Tour</a>
+      <a href="https://github.com/siagimir/rootmoss/blob/main/CHANGELOG.md">Changelog</a>
+      <a href="https://github.com/siagimir/rootmoss/blob/main/LICENSE">License</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

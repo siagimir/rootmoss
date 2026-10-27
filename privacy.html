@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Rootmoss</title>
+<meta name="description" content="This page sets no cookies, runs no analytics and collects nothing about you. What little technical data is involved is handled by GitHub, who host the page.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f7f4ed">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://siagimir.github.io/rootmoss/privacy.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M3%2014h18'%20stroke='%232e6b3d'%20stroke-width='1.6'%20stroke-linecap='round'%20opacity='.55'/%3E%3Cpath%20d='M12%2014V6'%20stroke='%232e6b3d'%20stroke-width='1.8'%20stroke-linecap='round'/%3E%3Cpath%20d='M12%209.5C9%209.5%207.4%207.6%207.4%205.1%2010.4%205.1%2012%207%2012%209.5Z'%20fill='%232e6b3d'/%3E%3Cpath%20d='M12%2011.6c3%200%204.6-1.9%204.6-4.4-3%200-4.6%201.9-4.6%204.4Z'%20fill='%232e6b3d'%20opacity='.72'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f7f4ed;
+    --surface: #fffdf9;
+    --code-bg: #f3f6f1;
+    --border: #e5dfd2;
+    --text: #20251f;
+    --muted: #4d544b;
+    --dim: #666e67;
+    --accent: #2e6b3d;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrap { width: 100%; max-width: 46rem; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.4rem 0;
+    margin-bottom: 3rem;
+    background: var(--surface);
+  }
+  header .wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding-bottom: 0;
+    max-width: 46rem;
+  }
+  header svg { display: block; flex: none; }
+  .brand { font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
+  .back { margin-left: auto; color: var(--muted); font-size: 0.92rem; }
+  .back:hover { color: var(--accent); text-decoration: none; }
+  h1 {
+    font-size: clamp(1.85rem, 4vw, 2.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    font-weight: 640;
+    margin: 0 0 0.4rem;
+  }
+  .date {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--dim);
+    margin: 0 0 2.25rem;
+    letter-spacing: 0.02em;
+  }
+  h2 {
+    font-size: 1.16rem;
+    letter-spacing: -0.015em;
+    font-weight: 620;
+    margin: 2.25rem 0 0.6rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+  }
+  p { margin: 0 0 1rem; color: var(--muted); }
+  p.first { color: var(--text); font-size: 1.12rem; }
+  strong { color: var(--text); font-weight: 620; }
+  code {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.05em 0.35em;
+    color: var(--text);
+  }
+  ul { margin: 0 0 1rem; padding-left: 1.25rem; color: var(--muted); }
+  li { margin-bottom: 0.45rem; }
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+    color: var(--dim);
+    font-size: 0.86rem;
+  }
+  @media (max-width: 40rem) {
+    .back { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3 14h18" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+      <path d="M12 14V6" stroke="#2e6b3d" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M12 9.5C9 9.5 7.4 7.6 7.4 5.1c3 0 4.6 1.9 4.6 4.4Z" fill="#2e6b3d"/>
+      <path d="M12 11.6c3 0 4.6-1.9 4.6-4.4-3 0-4.6 1.9-4.6 4.4Z" fill="#2e6b3d" opacity=".72"/>
+    </svg>
+    <span class="brand">Rootmoss</span>
+    <a class="back" href="index.html">Back to the page</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h1>Privacy</h1>
+  <p class="date">Last updated 27 October 2026</p>
+
+  <p class="first">
+    The short version: this page does not know who you are, does not want to
+    find out, and does not collect anything about you.
+  </p>
+
+  <h2>What this page collects</h2>
+  <p>Nothing. There are:</p>
+  <ul>
+    <li><strong>no cookies</strong> — so there is nothing to consent to,</li>
+    <li><strong>no analytics</strong> — no Google Analytics, no page counters,</li>
+    <li><strong>no trackers</strong> — no advertising, no social-media pixels,</li>
+    <li><strong>no forms</strong> — no sign-up, no newsletter, no email capture.</li>
+  </ul>
+  <p>
+    The page is plain HTML that your browser downloads and displays. Nothing is
+    sent back anywhere.
+  </p>
+
+  <h2>Where the page is hosted</h2>
+  <p>
+    Rootmoss is served by <strong>GitHub Pages</strong>. Like any web host, GitHub
+    necessarily sees the technical basics — your IP address, your browser type
+    and the time of your request — in order to deliver the files and to protect
+    its service from abuse. That data is handled by GitHub, under
+    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's own privacy statement</a>.
+  </p>
+  <p>
+    Rootmoss itself has no server of its own, no database, and no access to
+    those logs.
+  </p>
+
+  <h2>Links to other sites</h2>
+  <p>
+    This page links to GitHub. OpenCode and Obsidian are mentioned by name
+    only — nothing is embedded here. If you follow a GitHub link, you leave
+    this page and GitHub's own privacy policy applies.
+  </p>
+
+  <h2>The software itself</h2>
+  <p>
+    Rootmoss is a folder of Markdown files you run on your own computer. Your
+    notes, your profile and your memories never leave your machine unless
+    <em>you</em> put them somewhere — a private git repository of your own, for
+    instance. The software does not phone home, and there is no Rootmoss server
+    for it to talk to.
+  </p>
+
+  <h2>If this changes</h2>
+  <p>
+    If this page ever starts doing something more, this notice will be updated
+    before it happens and the date at the top will change. As it stands, there
+    is nothing to update.
+  </p>
+
+  <h2>Getting in touch</h2>
+  <p>
+    Questions? Open an issue on the
+    <a href="https://github.com/siagimir/rootmoss">GitHub repository</a> — that
+    is also public, so please don't post anything private there.
+  </p>
+
+  <footer>
+    © 2026 Miroslav Šiagi · Rootmoss is MIT licensed, provided as is, without
+    warranty of any kind.
+  </footer>
+
+</div>
+
+</body>
+</html>
