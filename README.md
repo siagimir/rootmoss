@@ -2,6 +2,8 @@
 
 **Your AI keeps forgetting you. Your files don't.**
 
+**Your memories, in files you own.**
+
 An **AGENTS.md template** for a personal AI memory — a folder of
 plain Markdown your agent reads at session start, so it remembers
 you across chats, models and tools. See the
