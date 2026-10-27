@@ -8,6 +8,17 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.7 — 2026-10-27
+
+- Honest storage claims (backed by a storage threat-model study):
+  dropped the absolute **"never in a vendor's cloud"** — a private
+  repo is hosted too. README now says memories stay on your disk and
+  never get **locked inside a chat vendor's memory**; quickstart
+  explains what "private" means and to keep raw sensitive documents
+  out of any cloud repo. Promo site: card 05 retitled **"Nothing
+  phones home"** (the guarantee the software actually makes);
+  quickstart step 01 carries the same one-liner.
+
 ## v0.1.6 — 2026-10-27
 
 - README hero: ownership sub-line **"Your memories, in files you

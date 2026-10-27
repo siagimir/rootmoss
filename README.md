@@ -12,14 +12,15 @@ you across chats, models and tools. See the
 Every chat starts from zero: you re-explain who you are, what you
 decided, what matters to you. Rootmoss gives any AI agent a memory
 that doesn't reset — a folder of plain Markdown it reads at session
-start. Your memories stay on your disk, or in your own private git
-repository, never in a vendor's cloud. Change the model, the tool,
-even the company behind it — your history comes with you.
+start. Your memories stay on your disk, in files you can copy and
+back up — they never get locked inside a chat vendor's memory.
+Change the model, the tool, even the company behind it — your
+history comes with you.
 
 - **Better conversations from the first message** — your agent starts
   with your profile, your open topics, what you learned last time.
-- **Truly yours** — plain files, no account, no subscription, no
-  vendor sitting on your data.
+- **Truly yours** — plain files, no account, no subscription,
+  no lock-in: your data never lives only inside a vendor's product.
 - **It compounds** — chats stay disposable; what you save keeps
   paying off as your tree grows.
 
@@ -58,6 +59,9 @@ First run takes about **15 minutes**.
 ## Quickstart
 
 1. Click **Use this template** → create your own **private** repo.
+   Private means only you can see it online — but your host still
+   stores the files, so keep raw sensitive documents (bank exports,
+   scans, IDs) out of any cloud repo.
 2. Get the files — clone it, or **Download ZIP** if you'd rather not
    use `git`:
 
