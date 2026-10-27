@@ -8,6 +8,11 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.5 — 2026-10-27
+
+- README: first screen gains the **AGENTS.md template** phrasing and a
+  link to the landing page (search + preview copy).
+
 ## v0.1.4 — 2026-10-27
 
 - README quickstart: **desktop app** and **web** options alongside

@@ -2,6 +2,11 @@
 
 **Your AI keeps forgetting you. Your files don't.**
 
+An **AGENTS.md template** for a personal AI memory — a folder of
+plain Markdown your agent reads at session start, so it remembers
+you across chats, models and tools. See the
+[landing page](https://siagimir.github.io/rootmoss/).
+
 Every chat starts from zero: you re-explain who you are, what you
 decided, what matters to you. Rootmoss gives any AI agent a memory
 that doesn't reset — a folder of plain Markdown it reads at session
