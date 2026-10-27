@@ -114,7 +114,9 @@ the same way after your first real memory.
 
 ## 8. Growing and upgrading
 
-- Your repo is a **snapshot** of the template — it does not auto-update.
+- Your repo is a **snapshot** of the template — it does not
+  auto-update. Check `CHANGELOG.md` (and the repo's Releases) to see
+  whether anything new is worth pulling.
 - To pull template updates later, add the template as a second remote
   and merge what you want:
 
