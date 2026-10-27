@@ -8,6 +8,12 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.4 — 2026-10-27
+
+- README quickstart: **desktop app** and **web** options alongside
+  the terminal; **Download ZIP** for non-git users; prerequisites
+  match the terminal-free-daily-use story.
+
 ## v0.1.3 — 2026-10-27
 
 - README + tour: honest run paths — OpenCode as **terminal, desktop
