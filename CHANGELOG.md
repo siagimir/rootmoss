@@ -8,16 +8,16 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
-## v0.1.5 — 2026-10-27
-
-- README: first screen gains the **AGENTS.md template** phrasing and a
-  link to the landing page (search + preview copy).
-
-## v0.1.5 — 2026-10-27
+## v0.1.6 — 2026-10-27
 
 - README hero: ownership sub-line **"Your memories, in files you
   own."** — mirrors the promo site after the two-model headline
   experiment (credibility champion across all panels).
+
+## v0.1.5 — 2026-10-27
+
+- README: first screen gains the **AGENTS.md template** phrasing and a
+  link to the landing page (search + preview copy).
 
 ## v0.1.4 — 2026-10-27
 
