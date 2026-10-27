@@ -76,6 +76,13 @@ rules your agent follows.
 Experimental. "Where did I get stuck?" issues are the most welcome
 contribution; responses are best-effort, not guaranteed.
 
+## Updates
+
+Releases are announced on the repo's **Releases** page. To get an
+email per release: **Watch** the repo → *Custom* → *Releases* →
+*Notify me when releases are published*. Or check `CHANGELOG.md`
+before pulling (`FIRST-TIME-HERE.md` §8).
+
 ## License
 
 [MIT](LICENSE) — code and prose. The Rootmoss **name and logo** are not

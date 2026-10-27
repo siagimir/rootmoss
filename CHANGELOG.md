@@ -6,6 +6,12 @@ contract stabilizes at 1.0.
 
 Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
+To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
+
+## v0.1.1 — 2026-10-27
+
+- README: "Updates" section — how to watch releases for email
+  notification and check the changelog before pulling.
 
 ## v0.1.0 — 2026-10-27
 
