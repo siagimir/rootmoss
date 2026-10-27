@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Rootmoss — Your AI keeps forgetting you. Your files don't.">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#2e6b3d" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#2e6b3d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f7f4ed"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- sprout mark, scaled from the 24px inline logo -->
+  <g transform="translate(570 118) scale(5)">
+    <path d="M3 14h18" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+    <path d="M12 14V6" stroke="#2e6b3d" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M12 9.5C9 9.5 7.4 7.6 7.4 5.1c3 0 4.6 1.9 4.6 4.4Z" fill="#2e6b3d"/>
+    <path d="M12 11.6c3 0 4.6-1.9 4.6-4.4-3 0-4.6 1.9-4.6 4.4Z" fill="#2e6b3d" opacity=".72"/>
+    <path d="M12 14c0 3-1.8 4.6-3.8 5.6" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".8"/>
+    <path d="M12 14c0 3.4 1.4 5 3.4 6" stroke="#2e6b3d" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".8"/>
+  </g>
+
+  <text x="600" y="330" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="74" font-weight="640" letter-spacing="-2.6" fill="#20251f">Your AI keeps forgetting you.</text>
+  <text x="600" y="410" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="74" font-weight="640" letter-spacing="-2.6" fill="#666e67">Your files don't.</text>
+
+  <text x="600" y="500" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="450" fill="#4d544b">A plain folder of Markdown files that gives your agent a memory it can't lose.</text>
+
+  <g>
+    <text x="600" y="566" text-anchor="middle" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace" font-size="24" letter-spacing="0.5" fill="#2e6b3d">Rootmoss · siagimir.github.io/rootmoss</text>
+  </g>
+</svg>

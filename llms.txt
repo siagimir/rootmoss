@@ -1,0 +1,47 @@
+# Rootmoss
+
+> A plain folder of Markdown files that gives your AI agent a permanent
+> memory it reads first. No account, no subscription, nothing leaves your
+> own disk. Open source, MIT licensed.
+
+Rootmoss is a GitHub template. You clone it, open the folder in any coding
+agent that reads `AGENTS.md` (OpenCode, Claude Code, or similar), and the
+agent starts every chat already knowing your profile, your decisions and
+your notes. Nothing is ever deleted: outdated notes are marked, not lost.
+
+## Start here
+
+- [Landing page](https://siagimir.github.io/rootmoss/): what it is, why it
+  matters and how it works
+- [First-time tour](https://github.com/siagimir/rootmoss/blob/main/FIRST-TIME-HERE.md):
+  the guided 15-minute setup
+- [README](https://github.com/siagimir/rootmoss/blob/main/README.md): the
+  full documentation
+- [Use this template](https://github.com/siagimir/rootmoss/generate): make
+  your own copy
+
+## Key concepts
+
+- [AGENTS.md](https://github.com/siagimir/rootmoss/blob/main/AGENTS.md) —
+  the instruction file the agent reads first
+- [USER.md](https://github.com/siagimir/rootmoss/blob/main/USER.md) — a
+  short profile of you
+- `memory/` — six typed folders: facts, preferences, decisions,
+  assumptions, lessons, context
+- `topics/` — one folder per area of your life
+- Lifecycle — notes are marked `active`, `superseded` or `closed`, never
+  deleted
+
+## Reference
+
+- [Changelog](https://github.com/siagimir/rootmoss/blob/main/CHANGELOG.md):
+  what changed and when
+- [License](https://github.com/siagimir/rootmoss/blob/main/LICENSE): MIT,
+  name and logo excluded
+- [Privacy](https://siagimir.github.io/rootmoss/privacy.html): the landing
+  page sets no cookies and runs no analytics
+
+## Optional
+
+- [Zed](https://zed.dev/) or [Obsidian](https://obsidian.md/) for a nicer
+  view of the files — not required
