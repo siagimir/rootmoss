@@ -16,9 +16,10 @@ even the company behind it — your history comes with you.
 - **It compounds** — chats stay disposable; what you save keeps
   paying off as your tree grows.
 
-Works with [OpenCode](https://opencode.ai) — or any agent that reads
-`AGENTS.md`. Read it in [Obsidian](https://obsidian.md) or any
-Markdown editor.
+Works with [OpenCode](https://opencode.ai) — **terminal, desktop app
+or web** — or any agent that reads `AGENTS.md`. Open the folder like
+any folder: Finder is enough. [Obsidian](https://obsidian.md) or Zed
+is optional, if you want a nicer view.
 
 > Status: **experimental / early**. The name and logo are not covered
 > by the license.
@@ -78,7 +79,9 @@ rules your agent follows.
 ## Who this is not for
 
 - You want a polished app with accounts and sync — this is a folder.
-- You will never open a terminal — try Obsidian on it first and see.
+- You never want to set anything up — daily use can be terminal-free
+  (desktop app or web), but the one-time setup still takes about 15
+  minutes; have someone technical do it once.
 
 ## Support
 

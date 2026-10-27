@@ -137,7 +137,9 @@ Prefer to just look? Open `topics/plants/topic.md` and a couple of
 ## 10. Who this is not for
 
 - You want a polished app with accounts and sync — this is a folder.
-- You won't touch a terminal — open it in Obsidian first and see.
+- You never want to set anything up — daily use can be terminal-free
+  (desktop app or web), but the first setup needs about 15 minutes of
+  someone technical's time.
 
 ## 11. Feedback
 

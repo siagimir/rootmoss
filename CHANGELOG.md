@@ -8,6 +8,13 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.3 — 2026-10-27
+
+- README + tour: honest run paths — OpenCode as **terminal, desktop
+  app or web**; daily use can be terminal-free (desktop app or web),
+  one-time setup still needed. Finder-first viewing; Obsidian/Zed
+  explicitly optional, not the interface.
+
 ## v0.1.2 — 2026-10-27
 
 - README: new hero + value framing — memory that doesn't reset, on
