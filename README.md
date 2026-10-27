@@ -106,6 +106,22 @@ rules your agent follows.
   (desktop app or web), but the one-time setup still takes about 15
   minutes; have someone technical do it once.
 
+## Storage is your choice
+
+Rootmoss is a folder — it doesn't host, sync, encrypt or back up
+anything. Where your copy lives (local disk, GitHub, a NAS,
+self-hosted git), what you back it up to and what you encrypt is up
+to you. The docs recommend patterns; no host or tool can guarantee
+them. If your notes matter, keep more than one copy: the classic
+rule is **3-2-1** — three copies, two kinds of media, one offsite.
+A good plain-language explanation: [Backblaze on the 3-2-1
+rule][321].
+
+The backup part is on you — same for the AI provider you connect:
+your account, your terms.
+
+[321]: https://www.backblaze.com/blog/the-3-2-1-backup-strategy/
+
 ## Support
 
 Experimental. "Where did I get stuck?" issues are the most welcome

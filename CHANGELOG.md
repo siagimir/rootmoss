@@ -19,6 +19,11 @@ To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
   phones home"** (the guarantee the software actually makes);
   quickstart step 01 carries the same one-liner.
 
+- README: new **"Storage is your choice"** section — hosting, backup
+  and encryption are the user's decisions; the **3-2-1** rule with a
+  link. `privacy.html` § The software itself mirrors the scope
+  sentence.
+
 ## v0.1.6 — 2026-10-27
 
 - README hero: ownership sub-line **"Your memories, in files you
