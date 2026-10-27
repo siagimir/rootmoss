@@ -1,0 +1,36 @@
+# Binary docs stay out of git — Markdown is the source of truth.
+# (Loosen this if you want screenshots/attachments versioned.)
+*.pdf
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mov
+*.mp4
+
+# Raw personal-data exports stay local by default.
+**/raw/
+**/imports/
+
+# Secrets — never commit.
+.env
+credentials/
+*.key
+
+# Obsidian per-machine state.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Editor / OS noise.
+.DS_Store
+.idea/
+*.swp
+*~
+
+# Tooling, if you add any.
+node_modules/
+__pycache__/
+*.pyc
