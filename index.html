@@ -35,7 +35,7 @@
       "@type": "WebSite",
       "name": "Rootmoss",
       "url": "https://siagimir.github.io/rootmoss/",
-      "description": "A plain folder of Markdown files that gives your AI agent a permanent memory it reads first. No account, no subscription, nothing leaves your own disk.",
+      "description": "A plain folder of Markdown files that gives your AI agent a permanent memory it reads first. No account, no subscription — your files stay on your disk, never inside a chat vendor's memory.",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "publisher": {
@@ -791,7 +791,9 @@
             <p>
               Before you type a word, it reads the instruction file, your
               profile, and the folder for whatever you're working on — so it
-              starts out informed instead of blank.
+              starts out informed instead of blank. Like any AI, it sends
+              what it reads to the model you chose: that is the one thing
+              that leaves. The folder never does.
             </p>
           </li>
           <li>
@@ -799,7 +801,9 @@
             <p>
               After a real conversation it saves a short note about what
               matters — never whole transcripts — and marks older notes outdated
-              instead of deleting them. Next time, it reads them back.
+              instead of deleting them. Next time, it reads them back. Before
+              it changes a file it clears a permission gate you can read
+              yourself: <code>opencode.json</code>, set to <code>edit: ask</code>.
             </p>
           </li>
         </ol>
@@ -810,6 +814,7 @@
 ├── <span class="name">AGENTS.md</span>            <span class="note"># the rules your agent reads first</span>
 ├── <span class="name">USER.md</span>              <span class="note"># a short profile of you</span>
 ├── <span class="name">FIRST-TIME-HERE.md</span>   <span class="note"># the guided tour</span>
+├── <span class="name">opencode.json</span>        <span class="note"># what it may do without asking</span>
 ├── <span class="dir">memory/</span>              <span class="note"># everything worth remembering</span>
 │   ├── <span class="dir">facts/</span>          <span class="note"># what is true</span>
 │   ├── <span class="dir">preferences/</span>    <span class="note"># how you like things</span>
@@ -894,10 +899,12 @@
         <div class="qs-item">
           <h3>No terminal, no install — just a browser</h3>
           <p>
-            OpenCode also runs as a <strong>web app</strong>. Someone technical
-            sets it up once on a machine you can reach — about 15 minutes — and
-            after that you only open a bookmark. The setup happens once; the
-            daily use is just a conversation. This is how family members
+            OpenCode also runs as a <strong>web app</strong>, which is why
+            this path exists. Here is who does what: someone technical
+            does steps 1 to 4 once — about 15 minutes on a machine you
+            can reach. You do step 5: paste the message, answer the
+            questions. After that you only open a bookmark, and daily
+            use is just a conversation. This is how family members
             usually start.
           </p>
         </div>
