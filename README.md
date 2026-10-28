@@ -37,6 +37,8 @@ is optional, if you want a nicer view.
 | Piece                | What it does for you                           |
 | -------------------- | ---------------------------------------------- |
 | `AGENTS.md`          | The contract your agent reads at session start |
+| `opencode.json`      | The permission floor — what it may do without  |
+|                      | asking you (`edit: ask`, `bash: ask`)          |
 | `FIRST-TIME-HERE.md` | Full tour: concepts, FAQ, first steps          |
 | `USER.md`            | Your thin profile — the agent's starting point |
 | `memory/<6 types>/`  | Typed folders: facts, preferences, decisions,  |
@@ -57,6 +59,11 @@ is optional, if you want a nicer view.
 First run takes about **15 minutes**.
 
 ## Quickstart
+
+**Not technical? Only steps 1–4 are, and they happen once.** Hand
+this README to someone who has run `git clone` before — they will be
+done in about fifteen minutes. Step 5 is yours, and step 5 is just
+pasting a message. Everything after that is conversation.
 
 1. Click **Use this template** → create your own **private** repo.
    Private means only you can see it online — but your host still
@@ -118,7 +125,10 @@ A good plain-language explanation: [Backblaze on the 3-2-1
 rule][321].
 
 The backup part is on you — same for the AI provider you connect:
-your account, your terms.
+your account, your terms. One thing always travels: when your agent
+reads a note, that text goes to the model you connected, exactly as
+it would in any AI chat. Your folder stays put; the words it reads
+travel.
 
 [321]: https://www.backblaze.com/blog/the-3-2-1-backup-strategy/
 

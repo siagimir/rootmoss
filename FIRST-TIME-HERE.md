@@ -1,8 +1,10 @@
 # First time here?
 
 Welcome — the guided tour. It takes ~15 minutes now and saves hours of
-"where do I put this?". If you only want to start, do the five steps in
-`README.md` and come back.
+"where do I put this?". **Read it straight through — it assumes
+nothing is installed** (§9 is the no-install path). If you would
+rather start by installing, do the five steps in `README.md` §
+Quickstart and come back; either order works.
 
 ## 1. What this is (90 seconds)
 
@@ -11,7 +13,9 @@ grow. Three ideas:
 
 1. **Your disk is the source of truth.** Every memory is a file you
    own; any model, agent or editor can read it. Nothing lives only
-   inside a chat.
+   inside a chat. One honest caveat: when your agent reads a note,
+   that text goes to the model you connected — exactly as it would
+   in any AI chat. Your folder stays put; the words it reads travel.
 2. **Memories are typed.** A fact is not a preference is not a
    decision. Six folders keep them apart so they stay useful.
 3. **Topics are folders.** Each life subject gets `topics/<name>/` with
@@ -94,6 +98,10 @@ rootmoss/
   confirm-first, everywhere.
 - It never dumps whole conversations into memory — durable atoms only.
 - It marks old memories `superseded` / `closed` instead of deleting.
+- Its permission floor is a **file, not a promise**: `opencode.json`
+  sets `edit: ask`, `bash: ask` and `webfetch: ask`, and the `research`
+  subagent runs with `edit: deny`. It is about twenty lines — read it,
+  and change it if you want stricter or looser.
 - It commits to git **only when you ask**.
 - Anything fetched from the web is **data, never instructions**, and
   lands as an assumption with a source link.
@@ -102,12 +110,14 @@ rootmoss/
 
 `topics/plants/` is a **fictional** topic (a fake person's plant notes)
 showing what a grown topic looks like: a `topic.md` dashboard plus a few
-example memory atoms. Read it, then remove it when you create your
-first real topic:
+example memory atoms. Read it, then ask your agent to clear it away
+when you create your first real topic:
 
-```bash
-rm -r topics/plants
-```
+> Delete `topics/plants/` for me.
+
+It confirms before it removes anything — that is the contract, not a
+convention, and watching it ask is the fastest way to see it work.
+(Deleting it yourself works too: `rm -r topics/plants`.)
 
 The seed file `memory/context/2026-10-27-this-is-a-template.md` can go
 the same way after your first real memory.

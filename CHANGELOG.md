@@ -8,6 +8,40 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.8 — 2026-10-28
+
+Evidence-driven fixes from a 126-session simulated persona study plus
+two independent expert reviews (see the personal-os topic note for the
+full write-up). Three P0s and two P1s:
+
+- **Show the enforcement.** The #1 objection across both study waves
+  was that the safety guarantees are prose in `AGENTS.md` with nothing
+  behind them — and `opencode.json` was named in the folder map but
+  never opened anywhere in the funnel. It is now in the landing-page
+  folder tree (`# what it may do without asking`), in README's *What
+  you get* table with its real values, and in the tour §6 as a
+  twenty-line file you are invited to read and change.
+- **Say where the text goes.** *"Nothing leaves your disk"* was
+  retired by v0.1.7, but no replacement sentence explained transit.
+  One honest line now appears in all three docs: when the agent reads
+  a note, that text goes to the model you connected — the folder
+  stays put, the words it reads travel.
+- **Split the door from the room (Path B).** The non-IT segment's
+  dominant objection was that the page promises *"just a folder,
+  Finder is enough"* and then arrives at GitHub, git and a one-line
+  installer. Path B now states who does what: steps 1–4 once by
+  someone technical, step 5 is yours, after that a bookmark. README's
+  Quickstart opens with the same split.
+- **Stop handing `rm -r` to an agent.** The tour told you to run
+  `rm -r topics/plants` while the page sold write-safety — noticed
+  unprompted by two respondents. It now asks your agent to remove it
+  and confirms first, which also demonstrates the claim. The manual
+  command remains as a parenthetical.
+- **End the Tour ↔ README bounce.** The tour opened by sending you to
+  the README, whose quickstart ends by sending you back to the tour.
+  The tour now says it can be read straight through with nothing
+  installed, and the README order is optional rather than recursive.
+
 ## v0.1.7 — 2026-10-27
 
 - Honest storage claims (backed by a storage threat-model study):
