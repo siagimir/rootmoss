@@ -278,6 +278,12 @@
     margin-top: 2.25rem;
   }
 
+  .cta-alt {
+    margin: 0.9rem 0 0;
+    font-size: 0.92rem;
+    color: var(--dim);
+  }
+
   .trust {
     margin: 1.75rem 0 0;
     color: var(--dim);
@@ -533,6 +539,65 @@
     color: var(--muted);
   }
 
+  /* ---------- setup walkthrough ---------- */
+  /* Figures sit OUTSIDE the .qs grid on purpose: a card holding four
+     images would blow the auto-fit layout apart. Full width, 2-up. */
+
+  .walk { margin-top: 2.75rem; }
+  .walk h3 {
+    margin: 2.25rem 0 1rem;
+    font-size: 1.02rem;
+    font-weight: 620;
+    letter-spacing: -0.01em;
+  }
+  .walk h3:first-child { margin-top: 0; }
+
+  .walk-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  @media (max-width: 56rem) {
+    .walk-steps { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  .shot {
+    margin: 0;
+    /* grid children stretch to row height; without this a shorter
+       figure leaves a bare --surface strip under its caption */
+    align-self: start;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot figcaption {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.7rem 0.9rem 0.8rem;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: var(--bg-raise);
+  }
+  .shot .n {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-top: 0.1rem;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-strong);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+  }
+
   /* ---------- quickstart ---------- */
 
   .qs {
@@ -722,10 +787,10 @@
     /* 4-col band: 4 + centred half-width strip */
     .cards .card:last-child { grid-column: 2 / span 2; }
   }
-  @media (min-width: 50rem) and (max-width: 65.9rem) {
-    /* quickstart: 4 steps in a 3-col band → 3 + full-width step */
-    .qs-item:last-child { grid-column: 1 / -1; }
-  }
+  /* Quickstart now has FIVE steps. The old rule spanned the last
+     card full-width for a 4-card layout; with 5 cards in a 3-col band
+     that leaves a hole (3 + 1 + full). Natural wrap 3+2 is correct,
+     so the guard is dropped. */
 </style>
 </head>
 <body>
@@ -761,24 +826,28 @@
 
       <h1>Your AI keeps forgetting you.<br><span class="soft">Your files don't.</span></h1>
 
-      <p class="hero-sub">Your memories, in files you own.</p>
+      <p class="hero-sub">Your AI's memory, as a folder on your computer.</p>
 
       <p class="lede">
-        Rootmoss is a plain folder of Markdown files — your profile, your
-        decisions, your notes — with one instruction file at the top that your
-        agent reads first. Teach it once, and every new chat starts already
-        knowing who you are and what you've decided. The folder lives on your own
-        disk, and it stays yours. Nothing is ever deleted — outdated notes get
-        marked, not lost.
+        ChatGPT, Grok and Claude all remember what you've told them —
+        but that memory lives inside their app, on their servers.
+        Rootmoss is the same idea: plain files on your own disk, read
+        by the AI you already use. It stays yours, and nothing gets
+        deleted — notes get marked, not lost.
       </p>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/siagimir/rootmoss/generate">Use this template</a>
+        <a class="btn btn-primary" href="https://github.com/siagimir/rootmoss/archive/refs/heads/main.zip">Download Rootmoss</a>
         <a class="btn btn-ghost" href="#how">See what's inside</a>
       </div>
 
+      <p class="cta-alt">
+        On GitHub and happy with git? <a href="https://github.com/siagimir/rootmoss/generate">Use this
+        template</a> — your copy picks up future updates.
+      </p>
+
       <p class="trust">
-        <span>Works with OpenCode — terminal, desktop app or web — or any agent that reads <code>AGENTS.md</code>.</span>
+        <span>Works with OpenCode — a free ChatGPT-style app you install — or anything else that reads <code>AGENTS.md</code>.</span>
         <span>Open it like any folder — Finder is enough.</span>
         <span>No&nbsp;Rootmoss&nbsp;account. No&nbsp;subscription. No&nbsp;company holding your data.</span>
       </p>
@@ -1046,16 +1115,27 @@
 
         <div class="qs-item">
           <span class="step">STEP 03</span>
-          <h3>Start it inside the folder</h3>
+          <h3>Open it in OpenCode</h3>
           <p>
-            Open the folder in the desktop app, or run
-            <code>opencode</code> from inside it. Any agent that
-            reads <code>AGENTS.md</code> works.
+            In the desktop app open <strong>Projects</strong> and add
+            your <code>rootmoss</code> folder — OpenCode calls it a
+            project; it is just this folder. In a terminal, run
+            <code>opencode</code> from inside it. Four clicks, below.
           </p>
         </div>
 
         <div class="qs-item">
           <span class="step">STEP 04</span>
+          <h3>Pick a model</h3>
+          <p>
+            A <em>provider</em> is whoever supplies the AI — OpenCode
+            Go, ChatGPT, or your own key. Click the model name, then
+            <strong>Connect an integration</strong>.
+          </p>
+        </div>
+
+        <div class="qs-item">
+          <span class="step">STEP 05</span>
           <h3>Paste the first message</h3>
           <p>
             One message sets up your profile and proposes your first topic. Then
@@ -1064,14 +1144,99 @@
         </div>
       </div>
 
+      <div class="walk">
+        <h3>Opening your folder — four clicks</h3>
+        <div class="walk-steps">
+          <figure class="shot">
+            <img src="opencode-desktop-1.png" width="1200" height="802"
+                 loading="lazy" decoding="async"
+                 alt="OpenCode desktop with a placeholder project called Default Project, an arrow pointing at its name in the status bar.">
+            <figcaption><span class="n">1</span><span>The app opens on
+              <strong>Default Project</strong> — not your folder. Click
+              that name, bottom left.</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="opencode-desktop-2.png" width="1200" height="804"
+                 loading="lazy" decoding="async"
+                 alt="The OpenCode projects dialog with a search box and Add project highlighted.">
+            <figcaption><span class="n">2</span><span>Choose
+              <strong>Add project</strong> at the top of the
+              dialog.</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="opencode-desktop-3.png" width="1200" height="778"
+                 loading="lazy" decoding="async"
+                 alt="A file picker showing the contents of the rootmoss folder, with arrows on the folder name in the path bar and on the Open button.">
+            <figcaption><span class="n">3</span><span>Find your
+              <code>rootmoss</code> folder, click <strong>the folder
+              itself</strong> — not a file inside it — then
+              <strong>Open</strong>.</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="opencode-desktop-4.png" width="1200" height="804"
+                 loading="lazy" decoding="async"
+                 alt="OpenCode with the rootmoss project loaded, the name shown in the status bar beside the git branch.">
+            <figcaption><span class="n">4</span><span>You're in. The
+              name at the bottom is now <strong>rootmoss</strong> —
+              that is the folder it reads.</span></figcaption>
+          </figure>
+        </div>
+
+        <h3>Choosing a model and a provider</h3>
+        <div class="walk-steps">
+          <figure class="shot">
+            <img src="opencode-desktop-5.png" width="1200" height="802"
+                 loading="lazy" decoding="async"
+                 alt="The OpenCode prompt box with an arrow pointing at the model name underneath it.">
+            <figcaption><span class="n">5</span><span>Click the
+              <strong>model name</strong> under the prompt
+              box.</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="opencode-desktop-6.png" width="1200" height="802"
+                 loading="lazy" decoding="async"
+                 alt="The model picker listing available models, with an arrow on the plus button shown as Manage models.">
+            <figcaption><span class="n">6</span><span>Press the
+              <strong>+</strong> in the model picker.</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="opencode-desktop-7.png" width="1200" height="802"
+                 loading="lazy" decoding="async"
+                 alt="The Manage models dialog listing models with toggles, and a Connect an integration button highlighted.">
+            <figcaption><span class="n">7</span><span>Then
+              <strong>Connect an integration</strong>.</span></figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="opencode-desktop-8.png" width="1200" height="802"
+                 loading="lazy" decoding="async"
+                 alt="The provider list showing OpenAI, GitHub Copilot, Anthropic and Google, followed by further services.">
+            <figcaption><span class="n">8</span><span>Pick a provider
+              you already have. A tick means you are already signed
+              in.</span></figcaption>
+          </figure>
+        </div>
+
+        <p class="tree-cap">
+          In a terminal instead: <code>/connect</code>, then
+          <code>/models</code>. Model names are the current catalogue —
+          yours will differ as models come and go.
+        </p>
+      </div>
+
       <p class="pathlabel">Path B — set it up once, for me</p>
 
       <div class="qs">
         <div class="qs-item">
           <h3>No terminal, no install — just a browser</h3>
           <p>
-            Someone technical does steps 1 to 3 once — about 15
-            minutes, on a machine you can reach. You do step 4: paste
+            Someone technical does steps 1 to 4 once — about 15
+            minutes, on a machine you can reach. You do step 5: paste
             the message, answer the questions. After that you only open
             a bookmark. This is how family members usually start.
           </p>
