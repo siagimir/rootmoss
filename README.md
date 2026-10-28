@@ -2,16 +2,21 @@
 
 **Your AI keeps forgetting you. Your files don't.**
 
-**Your memories, in files you own.**
+**Your AI's memory, as a folder on your computer.**
 
-An **AGENTS.md template** for a personal AI memory — a folder of
-plain Markdown your agent reads at session start, so it remembers
-you across chats, models and tools. See the
-[landing page](https://siagimir.github.io/rootmoss/).
+ChatGPT, Grok and Claude all remember what you've told them — but that
+memory lives inside their app, on their servers. Rootmoss is the same
+idea: a folder of plain files on your own disk, read by the AI you
+already use. It stays yours, and nothing gets deleted — notes get
+marked, not lost.
+
+An **AGENTS.md template** for a personal AI memory — a folder your
+agent reads at session start, so it remembers you across chats, models
+and tools. See the [landing page](https://siagimir.github.io/rootmoss/).
 
 Every chat starts from zero: you re-explain who you are, what you
-decided, what matters to you. Rootmoss gives any AI agent a memory
-that doesn't reset — a folder of plain Markdown it reads at session
+decided, what matters to you. Rootmoss gives any AI a memory that
+doesn't reset — a folder of plain files it reads at session
 start. Your memories stay on your disk, in files you can copy and
 back up — they never get locked inside a chat vendor's memory.
 Change the model, the tool, even the company behind it — your
@@ -25,10 +30,11 @@ history comes with you.
 - **It compounds** — chats stay disposable; what you save keeps
   paying off as your tree grows.
 
-Works with [OpenCode](https://opencode.ai) — **terminal, desktop app
-or web** — or any agent that reads `AGENTS.md`. Open the folder like
-any folder: Finder is enough. [Obsidian](https://obsidian.md) or Zed
-is optional, if you want a nicer view.
+Works with [OpenCode](https://opencode.ai) — a free, ChatGPT-style
+app you install — in **terminal, desktop app or web**, or with
+anything else that reads `AGENTS.md`. Open the folder like any folder:
+Finder is enough. [Obsidian](https://obsidian.md) or Zed is optional,
+if you want a nicer view.
 
 > Status: **experimental / early**. The name and logo are not covered
 > by the license.
@@ -61,24 +67,25 @@ First run takes about **15 minutes**.
 
 ## Quickstart
 
-**Not technical? Only steps 1–4 are, and they happen once.** Hand
-this README to someone who has run `git clone` before — they will be
-done in about fifteen minutes. Step 5 is yours, and step 5 is just
-pasting a message. Everything after that is conversation.
+**Not technical?** Only steps 1–3 need anyone technical, and they
+happen once. Step 4 is yours, and step 4 is just pasting a message.
+Everything after that is conversation.
 
-1. Click **Use this template** → create your own **private** repo.
-   Private means only you can see it online — but your host still
-   stores the files, so keep raw sensitive documents (bank exports,
-   scans, IDs) out of any cloud repo.
-2. Get the files — clone it, or **Download ZIP** if you'd rather not
-   use `git`:
+1. **Get the files.** Two ways:
 
-   ```bash
-   git clone <your-repo-url> rootmoss
-   cd rootmoss
-   ```
+   - **No GitHub account:** download the ZIP and unzip it — no login
+     at all. Go straight to step 2.
+   - **Using git:** click **Use this template** → create your own
+     **private** repo, then clone it. Your host still stores the
+     files, so keep raw sensitive documents (bank exports, scans,
+     IDs) out of any cloud repo. Your copy is a snapshot: it only
+     changes when you pull.
 
-3. Install OpenCode — pick whichever suits you:
+   [Download the
+   ZIP](https://github.com/siagimir/rootmoss/archive/refs/heads/main.zip)
+   · or `git clone <your-repo-url> rootmoss && cd rootmoss`
+
+2. Install OpenCode — pick whichever suits you:
 
    - **Desktop app** (no terminal): download from
      [opencode.ai](https://opencode.ai/v2/docs) and install.
@@ -94,9 +101,17 @@ pasting a message. Everything after that is conversation.
      setup by someone technical; after that, daily use is just a
      browser tab.
 
-4. Start it **from inside the folder**: run `opencode` in the
-   terminal, or open the folder in the desktop app.
-5. Paste your first message:
+3. Start it **from inside the folder**, and pick a model:
+
+   - **Desktop app:** open **Projects → Add project** and choose your
+     `rootmoss` folder. OpenCode calls it a project — it is just this
+     folder. (In a terminal: run `opencode` from inside it.)
+   - **Model:** click the model name under the prompt box, then
+     **Connect an integration** — sign in with ChatGPT if you already
+     pay for it, or pick any provider you have. Terminal:
+     `/connect`, then `/models`.
+
+4. Paste your first message:
 
    ```text
    Read AGENTS.md and FIRST-TIME-HERE.md. Then interview me one

@@ -8,6 +8,35 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.11 — 2026-10-28
+
+- **README leads with the category, not the architecture.** Added a
+  subhead — *"Your AI's memory, as a folder on your computer"* — and a
+  paragraph naming the comparison plainly: ChatGPT, Grok and Claude
+  all remember you, but that memory lives inside their app. Jargon
+  (`Markdown`, `instruction file`, `agent`) moved below that anchor
+  rather than leading with it. Trigger: a real non-technical reader
+  looked at the original and did not know what the product was — she
+  only understood after the ChatGPT comparison was explained out loud.
+- **Quickstart: a no-account route.** Step 1 is now *"Get the files"*
+  with two options — download the ZIP (no login at all) or use the
+  template (git, picks up updates). Previously the only first action
+  was a GitHub login, which contradicted the page's own *"No account"*
+  promise.
+- **Steps 1–4, and step 3 now covers both opening the folder and
+  picking a model.** Added OpenCode's own vocabulary: the desktop app
+  calls the folder a **project**, so the instructions say
+  **Projects → Add project** — a reader hitting a screen labelled
+  "Projects" for the first time was previously unprepared for it.
+  Provider picking added (sign in with ChatGPT, or any provider) with
+  the terminal equivalents `/connect` then `/models`.
+
+Site only (no version bump): hero rewritten with the same category
+anchor, primary CTA changed to **Download Rootmoss** with the template
+offered as a labelled secondary that states its advantage (future
+updates), and `og.svg` regenerated so the share card matches — it had
+kept the retired *"a memory it can't lose"* absolute claim.
+
 ## v0.1.10 — 2026-10-28
 
 - **The demo now shows the lifecycle instead of claiming it.** The
