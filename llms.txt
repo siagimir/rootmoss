@@ -1,9 +1,9 @@
 # Rootmoss
 
 > A plain folder of Markdown files that gives your AI agent a permanent
-> memory it reads first. No account, no subscription — your files stay
-> on your disk, never inside a chat vendor's memory. Open source, MIT
-> licensed.
+> memory it reads first. No Rootmoss account, no subscription — your
+> files stay on your disk, never inside a chat vendor's memory. Open
+> source, MIT licensed.
 
 Rootmoss is a GitHub template. You clone it, open the folder in any coding
 agent that reads `AGENTS.md` (OpenCode, Claude Code, or similar), and the

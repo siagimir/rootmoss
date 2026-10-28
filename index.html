@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rootmoss">
 <meta property="og:title" content="Rootmoss — a memory for your AI, in files you own">
-<meta property="og:description" content="A plain folder of Markdown files your AI agent reads first. Teach it once, and every new chat starts already knowing who you are and what you've decided. No account, no subscription.">
+<meta property="og:description" content="A plain folder of Markdown files your AI agent reads first. Teach it once, and every new chat starts already knowing who you are and what you've decided. No Rootmoss account, no subscription.">
 <meta property="og:url" content="https://siagimir.github.io/rootmoss/">
 <meta property="og:image" content="https://siagimir.github.io/rootmoss/og.png">
 <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MiroslavSiagi">
 <meta name="twitter:title" content="Rootmoss — a memory for your AI, in files you own">
-<meta name="twitter:description" content="Teach it once — every new chat starts already knowing who you are and what you've decided. No account, no subscription, no company holding your data.">
+<meta name="twitter:description" content="Teach it once — every new chat starts already knowing who you are and what you've decided. No Rootmoss account, no subscription, no company holding your data.">
 <meta name="twitter:image" content="https://siagimir.github.io/rootmoss/og.png">
 <meta name="twitter:image:alt" content="Rootmoss — Your AI keeps forgetting you. Your files don't. Your memories, in files you own.">
 
@@ -35,7 +35,7 @@
       "@type": "WebSite",
       "name": "Rootmoss",
       "url": "https://siagimir.github.io/rootmoss/",
-      "description": "A plain folder of Markdown files that gives your AI agent a permanent memory it reads first. No account, no subscription — your files stay on your disk, never inside a chat vendor's memory.",
+      "description": "A plain folder of Markdown files that gives your AI agent a permanent memory it reads first. No Rootmoss account, no subscription — your files stay on your disk, never inside a chat vendor's memory.",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "publisher": {
@@ -449,6 +449,90 @@
     font-size: 0.86rem;
   }
 
+  /* ---------- triptych: see it work ---------- */
+  /* Three panels, deterministic columns (3 above 56rem, 1 below) rather
+     than auto-fit, so a middle band can never orphan a panel. */
+
+  .triptych {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2.75rem;
+  }
+
+  @media (max-width: 56rem) {
+    .triptych { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  .tp { margin: 0; }
+
+  .tp-cap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin-bottom: 0.55rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .tp-n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-strong);
+    color: var(--accent);
+    font-size: 0.72rem;
+  }
+
+  .tp-win {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .tp-bar {
+    display: flex;
+    gap: 0.35rem;
+    padding: 0.6rem 0.8rem;
+    background: var(--bg-raise);
+    border-bottom: 1px solid var(--border);
+  }
+  .tp-bar span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+
+  .tp-body { padding: 0.95rem 0.9rem; font-size: 0.86rem; line-height: 1.55; }
+
+  .tp-line { margin: 0 0 0.8rem; }
+  .tp-line:last-child { margin-bottom: 0; }
+  .tp-who {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .tp-you .tp-who { color: var(--dim); }
+  .tp-you p { color: var(--muted); margin: 0.2rem 0 0; }
+  .tp-ai .tp-who { color: var(--accent); }
+  .tp-ai p { color: var(--text); margin: 0.2rem 0 0; }
+  .tp-note {
+    margin: 0.8rem 0 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
   /* ---------- quickstart ---------- */
 
   .qs {
@@ -696,7 +780,7 @@
       <p class="trust">
         <span>Works with OpenCode — terminal, desktop app or web — or any agent that reads <code>AGENTS.md</code>.</span>
         <span>Open it like any folder — Finder is enough.</span>
-        <span>No&nbsp;account. No&nbsp;subscription. No&nbsp;company holding your data.</span>
+        <span>No&nbsp;Rootmoss&nbsp;account. No&nbsp;subscription. No&nbsp;company holding your data.</span>
       </p>
     </div>
   </section>
@@ -755,13 +839,112 @@
           <span class="num">05</span>
           <h3>Nothing phones home</h3>
           <p>
-            No&nbsp;account, no sync service, no Rootmoss server between you and
-            your own memory. A plain folder is all it takes. Want version
-            history? Add a private git repo later — your host stores it, your
-            files stay yours.
+            No&nbsp;Rootmoss account, no sync service, no server of ours
+            between you and your own memory. A plain folder is all it
+            takes. Want version history? Add a private git repo later —
+            your host stores it, your files stay yours.
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ IN USE ============ -->
+  <section id="example">
+    <div class="wrap">
+      <p class="eyebrow">In use</p>
+      <h2>What it looks like</h2>
+      <p class="section-lede">
+        Three moments: the first conversation, a real request, and a later
+        session that already knows you.
+      </p>
+
+      <div class="triptych">
+
+        <figure class="tp">
+          <figcaption class="tp-cap">
+            <span class="tp-n">1</span> The first run
+          </figcaption>
+          <div class="tp-win">
+            <div class="tp-bar"><span></span><span></span><span></span></div>
+            <div class="tp-body">
+              <div class="tp-line tp-you">
+                <span class="tp-who">You</span>
+                <p>read AGENTS.md and FIRST-TIME-HERE.md, then interview me
+                one question at a time to fill in USER.md and propose my
+                first topic</p>
+              </div>
+              <div class="tp-line tp-ai">
+                <span class="tp-who">Agent</span>
+                <p>Question 1 of about 7: what's your name, and where do
+                you live?</p>
+              </div>
+            </div>
+          </div>
+          <p class="tp-note">One message gets you started. It asks one
+          question at a time, and nothing is written until you say yes.</p>
+        </figure>
+
+        <figure class="tp">
+          <figcaption class="tp-cap">
+            <span class="tp-n">2</span> A real request
+          </figcaption>
+          <div class="tp-win">
+            <div class="tp-bar"><span></span><span></span><span></span></div>
+            <div class="tp-body">
+              <div class="tp-line tp-you">
+                <span class="tp-who">You</span>
+                <p>plan a week in lisbon in may for us. we're both
+                vegetarian and we'd rather walk than take buses. also
+                nothing before 10am, we're on holiday not a work trip</p>
+              </div>
+              <div class="tp-line tp-ai">
+                <span class="tp-who">Agent</span>
+                <p>One hill a day, then. Do Alfama late afternoon rather
+                than midday: better light, thinner crowds, and you finish
+                at a viewpoint with a drink instead of a queue. Skip Pena,
+                Regaleira is better. Push back if you disagree.</p>
+              </div>
+            </div>
+          </div>
+          <p class="tp-note">An opinion you can argue with, not a wall of
+          links. Then it saves what's worth keeping, and why you chose
+          it.</p>
+        </figure>
+
+        <figure class="tp">
+          <figcaption class="tp-cap">
+            <span class="tp-n">3</span> A new session
+          </figcaption>
+          <div class="tp-win">
+            <div class="tp-bar"><span></span><span></span><span></span></div>
+            <div class="tp-body">
+              <div class="tp-line tp-you">
+                <span class="tp-who">You</span>
+                <p>so we found flights to lisbon. they're cheap, genuinely
+                cheap, but they land at 7am. worth it?</p>
+              </div>
+              <div class="tp-line tp-ai">
+                <span class="tp-who">Agent</span>
+                <p>Probably not. Cheap flights to Lisbon are cheap for a
+                reason, and this one charges you in daylight, not money. You
+                said no mornings before 10am, and a 7am landing means leaving
+                Brno at three. Worth it only if the saving covers the extra
+                night.</p>
+              </div>
+            </div>
+          </div>
+          <p class="tp-note">A later session. It had kept the note, so none
+          of that needed saying twice.</p>
+        </figure>
+
+      </div>
+
+      <p class="tree-cap">
+        An example, to show the shape of it. The trip is beside the point.
+        What matters is that the second conversation starts where the first
+        one left off.
+      </p>
     </div>
   </section>
 
@@ -833,6 +1016,7 @@
           </p>
         </div>
       </div>
+
     </div>
   </section>
 
