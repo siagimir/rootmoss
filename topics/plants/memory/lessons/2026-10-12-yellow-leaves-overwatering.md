@@ -1,7 +1,8 @@
 # Yellow leaves meant overwatering, not underwatering
 
 **Type**: lesson
-**Status**: active
+**Status**: superseded
+**Superseded by**: `2026-10-22-yellow-leaves-was-the-light.md`
 **Created on**: 2026-10-12
 
 - Yellow + soft leaves on the basil = **too much water**, not too

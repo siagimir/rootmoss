@@ -8,6 +8,43 @@ Your copy never updates itself — to see whether an update is worth
 pulling, read the entries below, then follow `FIRST-TIME-HERE.md` §8.
 To be emailed per release: **Watch** the repo → *Custom* → *Releases*.
 
+## v0.1.10 — 2026-10-28
+
+- **The demo now shows the lifecycle instead of claiming it.** The
+  plants topic shipped with every note `active`, so the product's
+  central promise — notes are marked, not deleted — was asserted but
+  never demonstrated in what a new user actually opens. Added a second
+  lesson (`2026-10-22-yellow-leaves-was-the-light.md`) that corrects
+  the first: October blamed the watering, the real cause was the
+  north-facing kitchen. The older lesson is now `Status: superseded`
+  with a `Superseded by` pointer, its content untouched and still
+  readable — which is the whole point. `topic.md` updated to match.
+
+Site only (no version bump): a **"Where it comes from"** card in
+*Where the project stands* — three months of daily use, in rounded
+aggregate numbers (about 600 commits, just under twenty topics, some
+350 atoms, roughly one in five superseded or closed). Counts only;
+no topic names, paths or content.
+
+## v0.1.9 — 2026-10-28
+
+- **"No account" → "No Rootmoss account"**, in README and on the promo
+  page (hero trust line, card 05, OG/Twitter descriptions, JSON-LD,
+  `llms.txt`). Step 1 of the quickstart asks you to create a GitHub
+  account, so the bare claim read as a contradiction — caught by a
+  persona in the 98-session study ("step one is literally making a
+  GitHub account, which contradicts the 'no account' feeling the whole
+  page sells"). Scoped honestly: there is no account *of ours*.
+
+Site only (no version bump — patch releases never touch the promo
+page): new **"What it looks like"** triptych in *How it works* — a
+use case in three panels: the first conversation, planning a week in
+Lisbon, and a later session that already knows your preferences.
+Shaped as an example of use rather than a testimonial, because a
+28-session design test found screenshots are the non-IT segment's
+strongest format (3.43/5 with P4) while a verbatim transcript scored
+2.36.
+
 ## v0.1.8 — 2026-10-28
 
 Evidence-driven fixes from a 126-session simulated persona study plus

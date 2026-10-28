@@ -19,8 +19,9 @@ history comes with you.
 
 - **Better conversations from the first message** — your agent starts
   with your profile, your open topics, what you learned last time.
-- **Truly yours** — plain files, no account, no subscription,
-  no lock-in: your data never lives only inside a vendor's product.
+- **Truly yours** — plain files, no Rootmoss account, no
+  subscription, no lock-in: your data never lives only inside a
+  vendor's product.
 - **It compounds** — chats stay disposable; what you save keeps
   paying off as your tree grows.
 
